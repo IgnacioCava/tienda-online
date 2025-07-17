@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "commonjs",
+    "target": "ES2020",
+    "types": ["jest", "node"],
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["../../packages/shared/*"],
+      "@tienda-online/shared": ["../../packages/shared/index"]
+    }
+  },
+  "include": ["src", "tests", "../../packages/shared"]
+}
