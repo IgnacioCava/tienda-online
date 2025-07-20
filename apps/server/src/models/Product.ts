@@ -1,7 +1,7 @@
-import { Schema, Document, model } from 'mongoose'
-import { Product } from '@tienda-online/shared'
+import type { IProduct } from '@tienda-online/shared'
+import { Document, model, Schema } from 'mongoose'
 
-type ProductDocument = Product & Document
+type ProductDocument = IProduct & Document
 
 const ProductSchema = new Schema<ProductDocument>(
   {
@@ -15,4 +15,4 @@ const ProductSchema = new Schema<ProductDocument>(
   { timestamps: true },
 )
 
-export const ProductModel = model<ProductDocument>('Product', ProductSchema)
+export const Product = model<ProductDocument>('Product', ProductSchema)

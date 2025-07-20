@@ -1,9 +1,10 @@
-import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import express from 'express'
+import { initializeFirebaseAdmin } from '@/lib/firebase/firebaseAdmin'
 import { connectToDatabase } from './db/mongoose'
-import { productRoute, health } from './routes'
 import { errorHandler } from './middleware/errorHandler'
+import { authRoute, health, productRoute } from './routes'
 
 dotenv.config()
 
@@ -21,12 +22,14 @@ app.use(express.json())
 app.get('/', (_, res) => res.send('API is working'))
 
 app.use('/api/products', productRoute)
+app.use('/api/auth', authRoute)
 app.use(health)
 
 app.use(errorHandler)
 
 if (process.env.NODE_ENV !== 'test') {
   connectToDatabase().then(() => {
+    initializeFirebaseAdmin()
     app.listen(PORT, () => {
       console.log(`Backend listening on http://localhost:${PORT}`)
     })
