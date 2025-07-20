@@ -7,9 +7,10 @@
     "types": ["jest", "node"],
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./src/*"],
       "@shared/*": ["../../packages/shared/*"],
       "@tienda-online/shared": ["../../packages/shared/index"]
     }
   },
-  "include": ["src", "tests", "../../packages/shared"]
+  "include": ["src", "tests", "../../packages/shared", "types"]
 }
