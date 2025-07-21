@@ -10,7 +10,7 @@ import { auth, googleProvider } from '@/lib/firebase'
 
 const AuthPage = () => {
   const user = useAuthStore((s) => s.user)
-  console.log(user)
+
   return (
     <div className="flex flex-col items-center gap-2">
       <p className="text-xl">Auth page</p>

@@ -18,3 +18,14 @@ export interface IUser {
   provider?: string
   role: 'client' | 'admin'
 }
+
+export interface IProductQueryParams {
+  search?: string
+  categories?: string[]
+  minPrice?: number
+  maxPrice?: number
+  sortBy?: 'name' | 'price' | 'createdAt'
+  sortOrder?: 'asc' | 'desc'
+  page?: number
+  limit?: number
+}

@@ -1,5 +1,6 @@
 import { FirebaseOptions, getApps, initializeApp } from 'firebase/app'
-import { getAuth, GoogleAuthProvider } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth'
+import { getStorage } from 'firebase/storage'
 
 const firebaseConfig: FirebaseOptions = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -13,3 +14,13 @@ const firebaseConfig: FirebaseOptions = {
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0]
 export const auth = getAuth(app)
 export const googleProvider = new GoogleAuthProvider()
+export const storage = getStorage(app)
+
+export const loginAndGetToken = async () => {
+  const email = process.env.NEXT_PUBLIC_TEST_EMAIL
+  const password = process.env.NEXT_PUBLIC_TEST_PASSWORD
+  if (!email || !password) throw 'No email or password set'
+  const userCredential = await signInWithEmailAndPassword(auth, email, password)
+  const token = await userCredential.user.getIdToken()
+  return token
+}

@@ -5,7 +5,7 @@ import { signInWithPopup, getIdToken } from 'firebase/auth'
 import { useAuthStore } from '@/store/useAuthStore'
 import { useState } from 'react'
 
-export default function SignInPage() {
+const SignInPage = () => {
   const { setUser, loginWithGoogle, logout, login, loading, error } = useAuthStore()
 
   const [email, setEmail] = useState('')
@@ -14,7 +14,6 @@ export default function SignInPage() {
   const handleGoogleLogin = async () => {
     try {
       const user = await loginWithGoogle()
-
       console.log(user)
     } catch (err) {
       console.error('Login error:', err)
@@ -68,3 +67,5 @@ export default function SignInPage() {
     </div>
   )
 }
+
+export default SignInPage
