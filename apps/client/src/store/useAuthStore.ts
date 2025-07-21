@@ -54,7 +54,6 @@ export const useAuthStore = create<AuthState>((set) => ({
     try {
       set({ loading: true, error: null })
       const methods = await fetchSignInMethodsForEmail(auth, email)
-      console.log(methods)
       if (methods.length > 0) {
         // Si el mail ya existe, logueamos
         const userCredential = await signInWithEmailAndPassword(auth, email, password)

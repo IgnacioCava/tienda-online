@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import { useAuthStore } from '@/store/useAuthStore'
+import { ReactQueryProvider } from '@/providers/ReactQueryProvider'
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   const initAuth = useAuthStore((s) => s.initAuth)
@@ -10,7 +11,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
     initAuth()
   }, [initAuth])
 
-  return children
+  return <ReactQueryProvider>{children}</ReactQueryProvider>
 }
 
 export default Providers

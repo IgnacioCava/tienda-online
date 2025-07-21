@@ -19,7 +19,6 @@ export const authMiddleware = async (req: Request, res: Response, next: NextFunc
     if (!decodedToken || !decodedToken.uid || !decodedToken.email) {
       return res.status(400).json({ message: 'Missing user data' })
     }
-    console.log(decodedToken)
     req.user = decodedToken // 👈 You attach the decoded Firebase token here
     next()
   } catch (err) {
