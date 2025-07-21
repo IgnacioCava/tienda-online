@@ -4,11 +4,13 @@ import type { IProductQueryParams } from '@tienda-online/shared'
 type PriceFilters = { $gte?: number; $lte?: number }
 type CategoryFilter = { $in?: string[] }
 type SearchFilter = { $regex: string; $options: 'i' }
+type StockFilter = { $gte: number }
 
 type Filters = {
   price?: PriceFilters
   category?: CategoryFilter
   name?: SearchFilter
+  stock: StockFilter
 }
 
 const buildProductQuery = (req: Request & { query: IProductQueryParams }) => {
@@ -27,7 +29,7 @@ const buildProductQuery = (req: Request & { query: IProductQueryParams }) => {
   const limitNumber = parseInt(limit as string, 10)
   const skip = (pageNumber - 1) * limitNumber
 
-  const filters: Filters = {}
+  const filters: Filters = { stock: { $gte: 1 } }
   const sort: Record<string, 1 | -1> = {}
 
   if (search) {
