@@ -4,7 +4,7 @@ import { useProduct } from '@/hooks'
 import Image from 'next/image'
 import { useParams, useRouter } from 'next/navigation'
 
-export default function ProductViewPage() {
+const ProductViewPage = () => {
   const router = useRouter()
   const { id } = useParams()
   const { data: product, isLoading } = useProduct(typeof id === 'string' ? id : '')
@@ -63,3 +63,5 @@ export default function ProductViewPage() {
     </div>
   )
 }
+
+export default ProductViewPage

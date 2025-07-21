@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-export default function NavbarDropdown() {
+const NavbarDropdown = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false)
 
   return (
@@ -42,3 +42,5 @@ export default function NavbarDropdown() {
     </nav>
   )
 }
+
+export default NavbarDropdown

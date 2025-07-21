@@ -5,9 +5,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "concurrently -n SERVER,CLIENT -c green,blue \"yarn --cwd apps/server dev\" \"yarn --cwd apps/client dev\"",
+    "dev": "concurrently -n SERVER,CLIENT,ADMIN -c green,blue,red \"yarn --cwd apps/server dev\" \"yarn --cwd apps/client dev\" \"yarn --cwd apps/admin-client dev\"",
     "dev:server": "yarn --cwd apps/server dev",
     "dev:client": "yarn --cwd apps/client dev",
+    "dev:admin": "yarn --cwd apps/admin-client dev",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write .",
     "prepare": "husky install",

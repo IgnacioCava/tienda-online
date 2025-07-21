@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import Providers from './providers'
-import NavbarDropdown from '@/components/Navbar'
+import Sidebar from './components/sidebar'
+import { useAuthGuard } from '@/hooks/useAuthGuard'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -26,10 +27,13 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white h-full`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {' '}
         <Providers>
-          <NavbarDropdown />
-          <div className="flex w-full min-h-[calc(100vh-60px)]">{children}</div>
+          <div className="flex flex-row">
+            <Sidebar />
+            <div className="flex w-full min-h-[calc(100vh-60px)]">{children}</div>
+          </div>
         </Providers>
       </body>
     </html>
