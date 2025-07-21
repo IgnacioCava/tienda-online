@@ -2,8 +2,6 @@
 
 ### Descripción
 
-This project is a full-stack advanced online store application with a Next.js frontend and a Node.js + Express backend, connected to MongoDB via Mongoose. It includes authentication, product management, and a dashboard for admins.
-
 Esta proyecto es una aplicación e-commerce full stack, hecha con Next.js en el frontend y Express en el backend. Incluye autenticación, panél de administrador y sistema de almacenamiento de imégenes.
 
 ## Esctructura
