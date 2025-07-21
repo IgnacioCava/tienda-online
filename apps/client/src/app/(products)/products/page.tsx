@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useDebouncedCallback } from 'use-debounce'
 
-export default function ProductListPage() {
+const ProductListPage = () => {
   const [filters, setFilters] = useState<IProductQueryParams>({
     page: 1,
     limit: 10,
@@ -80,3 +80,5 @@ export default function ProductListPage() {
     </div>
   )
 }
+
+export default ProductListPage

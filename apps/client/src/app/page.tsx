@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function LandingPage() {
+const LandingPage = () => {
   return (
     <main className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-100 via-white to-purple-100 px-4 w-full">
       {/* Blurred SVG background blob */}
@@ -31,3 +31,5 @@ export default function LandingPage() {
     </main>
   )
 }
+
+export default LandingPage

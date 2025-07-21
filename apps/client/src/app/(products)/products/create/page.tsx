@@ -2,10 +2,12 @@
 
 import { ProductForm } from '@/components'
 
-export default function CreateProductPage() {
+const CreateProductPage = () => {
   return (
     <div className="max-w-screen-lg mx-auto p-6">
       <ProductForm />
     </div>
   )
 }
+
+export default CreateProductPage
